@@ -40,7 +40,9 @@ app.post('/driver/driverDetails', async (req, res) => {
     try {
       const data = req.body;
       // const response = await axios.post('https://backend.hyderabad-packers-movers.in/customer/customerDetails', data);
-      const response = await axios.post('http://localhost:8080/driver/driverDetails', data);
+      //const response = await axios.post('http://localhost:8080/driver/driverDetails', data);
+      //For Docker compose, give DNS ie,<serviename>:<port>
+      const response = await axios.post('http://backend:8080/driver/driverDetails', data);
       // Send the JSON response from Spring Boot to the frontend
       res.status(200).json(response.data);
     } catch (error) {
